@@ -18,7 +18,7 @@ $(document).ready(function() {
       $('#coin').show();
       $('#count').text(count++);
    });
-
+   $("body").keydown()
    $("body").keydown(function(event) { 
        console.log(event)
       if(event.keyCode == 37) { // left
@@ -34,4 +34,22 @@ $(document).ready(function() {
           jump();
       }
     });
+
+function keydown(event){
+if (event.which === 38 || event.which=== 87) {
+        $("#mario").css("top", $("#mario").offset().top - 40);
+    //moves right
+    } else if ((event.which === 40) || (event.which===83)) {
+        $("#mario").css("top", $("#mario").offset().top+ 40);
+   } else if (event.which === 37 || event.which===65) {
+        $("#mario").css("left", $("#mario").offset().left - 40);
+    //moves right 
+    } else if (event.which === 39 || event.which===68) {
+        $("#mario").css("left", $("#mario").offset().left+ 40);
+    } else if(event.which === 38 || event.which===68){
+        jump();
+    } else{
+        return;
+    }
+} 
 });
